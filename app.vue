@@ -48,7 +48,8 @@ h1.main-title {
 	font-weight: 500;
 	line-height: 80px;
 	text-align: center;
-	margin-bottom: 32px;
+	max-width: 1000px;
+	margin: 0 auto 32px;
 }
 
 h2.title {
@@ -130,6 +131,9 @@ a.text_link {
 	transition: 260ms ease-out;
 	cursor: pointer;
 }
+.button svg {
+	min-width: 25px;
+}
 .button.blue-button {
 	background-color: transparent;
 	color: #83CFF8;
@@ -155,5 +159,111 @@ a.text_link {
 	max-width: 1280px;
 	padding: 0 64px;
 	margin: 0 auto;
+}
+
+@media (max-width: 1050px) {
+	.advantages-grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+	}
+	.advantages-grid__item_long {
+		grid-column: 1;
+	}
+	.about-flex {
+		flex-wrap: wrap;
+	}
+	.firmware-head {
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}	
+	.firmware-image img {
+		width: 100%;
+		max-width: 280px;
+	}
+}
+
+@media (max-width: 876px) {
+	.container {
+		padding: 0 26px;
+	}
+	.main-actions {
+		flex-direction: column;
+	}
+	.advantages-grid.height-auto {
+		grid-template-columns: 1fr;
+	}
+	.header-navigation {
+		position: fixed;
+		top: 100%;
+	}
+	.burger-button {
+		display: flex;
+	}
+	.main-section {
+		padding: 80px 0 42px;
+	}
+	.bg-section {
+		padding-top: 76px;
+	}
+	.firmware-head {
+		flex-direction: column;
+	}
+	.select-label {
+		font-size: 24px;
+	}
+	.select-primary, .select-value {
+		width: 100%;
+	}
+	.select-head {
+		display: grid;
+		grid-template-columns: 0.6fr 1.3fr;
+	}
+	.advantages-grid__item-img img {
+		width: 100%;
+	}
+	.firmware-image {
+		display: none;
+	}
+	.firmware-inner {
+		padding: 32px 24px;
+	}
+	.firmware-info {
+		text-align: center;
+	}
+	.firmware-flex {
+		justify-content: center;
+		text-align: center;
+	}
+	.firmware-item .button, .firmware-item {
+		width: 100%;
+		max-width: none;
+	}
+	h1.main-title {
+		font-size: 50px;
+		line-height: 48px;
+	}
+
+	h2.title {
+		font-size: 40px;
+		line-height: 40px;
+	}
+	.accent {
+		font-size: 32px;
+		line-height: 40px;
+	}
+	.about-flex .accent {
+		font-size: 64px;
+		line-height: 64px;
+	}
+}
+@media (max-width: 546px) {
+	.container {
+		padding: 0 16px;
+	}
+	.footer-inner {
+		flex-direction: column;
+		justify-content: center;
+		gap: 26px;
+	}
 }
 </style>

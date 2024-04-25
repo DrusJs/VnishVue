@@ -2,8 +2,8 @@
     <main class="main">	
         <section class="main-section">
             <div class="container">
-                <h1 class="main-title">ASIC FIRMWARE <span class="accent">from</span> <span class="color_primary">VNISH</span> DEVELOPERS</h1>
-                <p class="text_large text_center color_text">Absolutely free and unrestricted access to the latest updates of VNISH custom firmware for Bitmain ASIC hardware</p>
+                <h1 class="main-title">ASIC FIRMWARE <span class="accent">from&nbsp;</span><span class="color_primary">VNISH </span>DEVELOPERS</h1>
+                <p class="text_large text_center color_text">Absolutely free and unrestricted access to the latest updates of VNISH custom firmware for&nbsp;Bitmain ASIC hardware</p>
                 <div class="main-actions">
                     <button class="button stroke">Become a client</button>
                     <button class="button">
@@ -346,6 +346,10 @@ export default {
 .main-section {
 	padding: 120px 0;
 }
+.main-section p {
+    max-width: 980px;
+    margin: 0 auto;
+}
 
 .main-actions {
 	padding: 32px 0 0;
@@ -474,9 +478,6 @@ export default {
 	padding: 48px;
 	gap: 40px;
 }
-.firmware-image {
-	
-}
 .firmware-info {
 	display: flex;
 	flex-direction: column;
@@ -486,6 +487,7 @@ export default {
 .firmware-flex {
 	display: flex;
 	gap: 16px;
+    flex-wrap: wrap;
 }
 .firmware-item {
 	display: flex;
@@ -534,8 +536,8 @@ export default {
 .about-flex {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	gap: 20px;
+	justify-content: center;
+	gap: 60px;
 	max-width: 850px;
 	width: 100%;
 }
@@ -585,6 +587,12 @@ export default {
 	margin-top: 16px;
 	background-image: var(--linear-gradient-grid);
 }
+.faq-container .faq-item:last-child {
+    border-bottom: none;
+}
+.faq-container .faq-item:last-child .faq-item__head {
+    padding-bottom: 0;
+}
 .faq-item {
 	width: 100%;
 	border-bottom: 1px solid var(--color-text-secondary);
@@ -605,7 +613,9 @@ export default {
 	background-color: transparent;
 	border: none;
 	padding: 2px 6px 20px;
+    gap: 16px;
 	cursor: pointer;
+    text-align: left;
 }
 
 .faq-item__head::after {
