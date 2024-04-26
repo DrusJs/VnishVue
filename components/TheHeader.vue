@@ -2,26 +2,26 @@
     <header class="header">
         <div class="container">
             <div class="header-inner">
-                <img src="../assets/img/logo.svg" alt="Logo" class="logo">
+                <img src="~/assets/img/logo.svg" alt="Logo" class="logo">
                 <div class="header-navigation">
                     <nav class="navigation">
                         <ul class="navigation-list">
-                            <li class="navigation-list__item"><a href="#firmware">Firmware</a></li>
-                            <li class="navigation-list__item"><a href="#advantages">Advantages</a></li>
-                            <li class="navigation-list__item"><a href="#about-us">About</a></li>
-                            <li class="navigation-list__item"><a href="#faq">FAQ</a></li>
+                            <li class="navigation-list__item" @click="toggleBurgerMenu"><a href="#firmware">Firmware</a></li>
+                            <li class="navigation-list__item" @click="toggleBurgerMenu"><a href="#advantages">Advantages</a></li>
+                            <li class="navigation-list__item" @click="toggleBurgerMenu"><a href="#about-us">About</a></li>
+                            <li class="navigation-list__item" @click="toggleBurgerMenu"><a href="#faq">FAQ</a></li>
                         </ul>
                     </nav>
                     <ul class="social-media">
-                        <li class="social-media__item"><a href="#"><img src="../assets/img/telegram-mono.svg" alt="telegram"></a></li>
-                        <li class="social-media__item"><a href="#"><img src="../assets/img/reddit-mono.svg" alt="reddit"></a></li>
-                        <li class="social-media__item"><a href="#"><img src="../assets/img/linkedin-mono.svg" alt="linkedin"></a></li>
-                        <li class="social-media__item"><a href="#"><img src="../assets/img/facebook-mono.svg" alt="facebook"></a></li>
-                        <li class="social-media__item"><a href="#"><img src="../assets/img/youtube-mono.svg" alt="youtube"></a></li>
-                        <li class="social-media__item"><a href="#"><img src="../assets/img/twitter-x-mono.svg" alt="twitter"></a></li>
+                        <li class="social-media__item"><a href="#"><img src="~/assets/img/telegram-mono.svg" alt="telegram"></a></li>
+                        <li class="social-media__item"><a href="#"><img src="~/assets/img/reddit-mono.svg" alt="reddit"></a></li>
+                        <li class="social-media__item"><a href="#"><img src="~/assets/img/linkedin-mono.svg" alt="linkedin"></a></li>
+                        <li class="social-media__item"><a href="#"><img src="~/assets/img/facebook-mono.svg" alt="facebook"></a></li>
+                        <li class="social-media__item"><a href="#"><img src="~/assets/img/youtube-mono.svg" alt="youtube"></a></li>
+                        <li class="social-media__item"><a href="#"><img src="~/assets/img/twitter-x-mono.svg" alt="twitter"></a></li>
                     </ul>
                 </div>
-                <button class="burger-button">
+                <button class="burger-button" @click="toggleBurgerMenu">
                     <div class="burger-button__open">Menu</div>
                     <div class="burger-button__close">Close</div>
                 </button>
@@ -31,7 +31,12 @@
 </template>
 <script>
 export default {
-    
+  methods: {
+    toggleBurgerMenu() {
+      document.querySelector('.burger-button').classList.toggle('active')
+      document.querySelector('.header-navigation').classList.toggle('active')
+    }
+  }
 }
 </script>
 <style>
@@ -74,6 +79,9 @@ export default {
 .social-media_item a {
 	color: var(--color-text-primary);
 	text-decoration: none;
+}
+.social-media__item path {
+    transition: 260ms ease-out;
 }
 .burger-button {
 	display: none;

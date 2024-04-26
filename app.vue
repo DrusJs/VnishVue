@@ -7,12 +7,13 @@
 </template>
 <script>
 export default {
-  
+
 }
 </script>
 <style>
   :root {
 	--color-dark-bg: #0E1011;
+	--color-page: #21252A;
 	--color-white: #FFFFFF;
 	--color-text-primary: #DCDFE5;
 	--color-text-secondary: #6C7684;
@@ -81,6 +82,12 @@ h2.title {
 	font-weight: 400;
 	line-height: 22px;
 }
+
+.action_large {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 20px;
+}
 .action_medium {
 	font-size: 14px;
 	font-weight: 600;
@@ -111,7 +118,11 @@ a.text_link {
 	color: var(--color-primary);
 	text-decoration: underline;
 }
-
+.fade {
+	opacity: 0;
+	transform: translateY(-20px);
+	transition: transform 0.6s, opacity 0.6s;
+}
 .button {
 	font-family: "Roboto Flex", sans-serif;
 	font-size: 16px;
@@ -134,6 +145,9 @@ a.text_link {
 .button svg {
 	min-width: 25px;
 }
+.button span.size {
+	font-weight: 400;
+}
 .button.blue-button {
 	background-color: transparent;
 	color: #83CFF8;
@@ -148,10 +162,21 @@ a.text_link {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	background-image: url(../img/background.png);
-	position: top center;
+	background-image: url(img/background.png);
+	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 2;
+	background-color: #2B2D35;
+}
+.firmware-section {
+	position: relative;
+	z-index: 1;
 }
 
 .container {
@@ -172,17 +197,22 @@ a.text_link {
 	.about-flex {
 		flex-wrap: wrap;
 	}
-	.firmware-head {
-		flex-wrap: wrap;
-		justify-content: flex-start;
-	}	
+	
 	.firmware-image img {
 		width: 100%;
 		max-width: 280px;
 	}
+	.firmware-head {
+		grid-template-columns: 1fr 1fr;
+		justify-items: flex-start;
+	}
 }
 
 @media (max-width: 876px) {
+	body:has(.header-navigation.active) {
+		overflow: hidden;
+	}
+
 	.container {
 		padding: 0 26px;
 	}
@@ -194,29 +224,55 @@ a.text_link {
 	}
 	.header-navigation {
 		position: fixed;
-		top: 100%;
+		top: 73px;
+		padding-top: 48px;
+		left: auto;
+		right: -100%;
+		height: calc(100dvh - 100px);
+		display: flex;
+		flex-direction: column;
+		box-shadow: 100px 100px 0 100px #2B2D35;
+		background-color: #2B2D35;
+		transition: 200ms ease-out;
+	}
+	.navigation-list {
+		flex-direction: column;
+		gap: 36px;
+	}
+	.navigation-list__item a {
+		font-size: 24px;
+		line-height: 30px;
+		font-weight: 500;
+	}
+	.header-navigation.active {
+		right: 0;
+	}
+	.social-media {
+		width: 100%;
+		justify-content: center;
+		padding-top: 16px;
+		border-top: 1px solid var(--color-stroke);
 	}
 	.burger-button {
 		display: flex;
 	}
 	.main-section {
-		padding: 80px 0 42px;
+		padding: 153px 0 42px;
 	}
 	.bg-section {
 		padding-top: 76px;
 	}
+	.select-wrapper {
+		display: grid;
+		grid-template-columns: 84px 1fr;
+		width: 100%;
+	}
 	.firmware-head {
 		flex-direction: column;
-	}
-	.select-label {
-		font-size: 24px;
+		padding: 18px;
 	}
 	.select-primary, .select-value {
 		width: 100%;
-	}
-	.select-head {
-		display: grid;
-		grid-template-columns: 0.6fr 1.3fr;
 	}
 	.advantages-grid__item-img img {
 		width: 100%;
@@ -255,6 +311,9 @@ a.text_link {
 		font-size: 64px;
 		line-height: 64px;
 	}
+	.about-container {
+		padding: 46px 18px;
+	}
 }
 @media (max-width: 546px) {
 	.container {
@@ -264,6 +323,32 @@ a.text_link {
 		flex-direction: column;
 		justify-content: center;
 		gap: 26px;
+	}
+	.navigation-list {
+		gap: 24px;
+	}
+	.firmware-head {
+		grid-template-columns: 1fr;
+	}
+}
+@media (max-width: 359px) {
+	.header-navigation {
+		padding-top: 26px;
+	}
+	.header-navigation {
+		height: calc(100dvh - 84px);
+	}
+	.footer-list {
+		gap: 26px;
+	}
+}
+@media (hover: hover) {
+    .navigation-list__item a:hover,
+	.footer-list__item a:hover {
+		color: var(--color-white);
+	}
+	.social-media__item:hover path {
+		fill: var(--color-white);
 	}
 }
 </style>

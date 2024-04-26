@@ -3,7 +3,7 @@
         <div class="container">
             <div class="footer-inner">
                 <div class="logo">
-                    <img src="../assets/img/logo-letter.svg" alt="VnishCom">						
+                    <img src="~/assets/img/logo-letter.svg" alt="VnishCom">						
                 </div>
                 <ul class="footer-list">
                     <div class="footer-list__item"><a href="#">facebook</a></div>
